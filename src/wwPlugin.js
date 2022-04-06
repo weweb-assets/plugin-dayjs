@@ -88,29 +88,29 @@ export default {
         if (!amount) throw 'Second parameter must be a number';
         return dayjs(date).add(amount, 'year').locale(this.locales[locale]).format(format);
     },
-    setSecond(amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
+    setSecond(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!amount) throw 'First parameter must be a number';
-        return dayjs().set('second', amount).locale(this.locales[locale]).format(format);
+        return dayjs(date).set('second', amount).locale(this.locales[locale]).format(format);
     },
-    setMinute(amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
+    setMinute(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!amount) throw 'First parameter must be a number';
-        return dayjs().set('minute', amount).locale(this.locales[locale]).format(format);
+        return dayjs(date).set('minute', amount).locale(this.locales[locale]).format(format);
     },
-    setHour(amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
+    setHour(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!amount) throw 'First parameter must be a number';
-        return dayjs().set('hout', amount).locale(this.locales[locale]).format(format);
+        return dayjs(date).set('hout', amount).locale(this.locales[locale]).format(format);
     },
-    setDay(amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
+    setDay(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!amount) throw 'First parameter must be a number';
-        return dayjs().set('day', amount).locale(this.locales[locale]).format(format);
+        return dayjs(date).set('day', amount).locale(this.locales[locale]).format(format);
     },
-    setMonth(amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
+    setMonth(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!amount) throw 'First parameter must be a number';
-        return dayjs().set('month', amount).locale(this.locales[locale]).format(format);
+        return dayjs(date).set('month', amount).locale(this.locales[locale]).format(format);
     },
-    setYear(amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
+    setYear(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!amount) throw 'First parameter must be a number';
-        return dayjs().set('year', amount).locale(this.locales[locale]).format(format);
+        return dayjs(date).set('year', amount).locale(this.locales[locale]).format(format);
     },
     compareDate(date1, date2, precision, float = false) {
         if (!date1) throw 'First parameter must be a date';

@@ -19,15 +19,15 @@
             <template #append-label>
                 <wwEditorInputSwitch
                     class="m-auto-left"
-                    :model-value="c_isCustomLocale"
-                    @update:modelValue="setIsCustomLocale"
+                    :model-value="c_isCustomLocales"
+                    @update:modelValue="setIsCustomLocales"
                 />
             </template>
             <span class="label-s m-bottom">
                 By default, the loaded locales are those of the languages present on your site, but you can add others
                 manually.
             </span>
-            <div v-if="isCustomLocale" class="dayjs-settings-edit__row -wrap">
+            <div v-if="isCustomLocales" class="dayjs-settings-edit__row -wrap">
                 <wwEditorInputTextSelect
                     v-for="(locale, index) in c_locales"
                     :key="index"
@@ -64,7 +64,7 @@ export default {
     emits: ['update:settings'],
     data() {
         return {
-            isCustomLocale: false,
+            isCustomLocales: false,
             selectedLocales: [],
             localesActions: [{ icon: 'delete', label: 'Remove locale', onAction: this.deleteLocale }],
             publicData: {},
@@ -77,8 +77,8 @@ export default {
         c_locales() {
             return [...this.websiteLangs, ...this.selectedLocales];
         },
-        c_isCustomLocale() {
-            return this.isCustomLocale && this.selectedLocales.length;
+        c_isCustomLocales() {
+            return this.isCustomLocales && this.selectedLocales.length;
         },
     },
     watch: {
@@ -127,8 +127,8 @@ export default {
 
             this.publicData = { ...this.publicData, locales: this.c_locales };
         },
-        setIsCustomLocale() {
-            this.isCustomLocale = !this.isCustomLocale;
+        setIsCustomLocales() {
+            this.isCustomLocales = !this.isCustomLocales;
         },
     },
 };
