@@ -59,51 +59,51 @@ export default {
         },
         {
             name: 'addSeconds',
-            arrity: 0,
+            arrity: 2,
         },
         {
             name: 'addMinutes',
-            arrity: 0,
+            arrity: 2,
         },
         {
             name: 'addHours',
-            arrity: 0,
+            arrity: 2,
         },
         {
             name: 'addDays',
-            arrity: 0,
+            arrity: 2,
         },
         {
             name: 'addMonths',
-            arrity: 0,
+            arrity: 2,
         },
         {
             name: 'addYears',
-            arrity: 0,
+            arrity: 2,
         },
         {
             name: 'setSecond',
-            arrity: 0,
+            arrity: 2,
         },
         {
             name: 'setMinute',
-            arrity: 0,
+            arrity: 2,
         },
         {
             name: 'setHour',
-            arrity: 0,
+            arrity: 2,
         },
         {
             name: 'setDay',
-            arrity: 0,
+            arrity: 2,
         },
         {
             name: 'setMonth',
-            arrity: 0,
+            arrity: 2,
         },
         {
             name: 'setYear',
-            arrity: 0,
+            arrity: 2,
         },
         {
             name: 'compareDate',
