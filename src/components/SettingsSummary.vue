@@ -1,0 +1,29 @@
+<template>
+    <div class="dayjs-settings-summary">
+        <wwEditorIcon large name="type" class="dayjs-settings-summary__icon" />
+        <span class="caption-m">{{ favoriteFormat }}</span>
+    </div>
+</template>
+
+<script>
+export default {
+    props: {
+        settings: { type: Object, required: true },
+    },
+    computed: {
+        favoriteFormat() {
+            return this.settings.publicData.favoriteFormat || '';
+        },
+    },
+};
+</script>
+
+<style lang="scss" scoped>
+.dayjs-settings-summary {
+    display: flex;
+    align-items: baseline;
+    &__icon {
+        margin-right: var(--ww-spacing-02);
+    }
+}
+</style>
