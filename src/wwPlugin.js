@@ -17,7 +17,9 @@ export default {
     lang: computed(() => wwLib.$store.getters['front/getLang']),
 
     async onLoad(settings) {
+        console.log('SETTINGS 📙', settings);
         if (!settings.publicData.locales) return;
+
         const selectedLocales = settings.publicData.locales;
         if (Array.isArray(selectedLocales)) {
             for (let locale of selectedLocales) {

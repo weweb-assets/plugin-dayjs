@@ -92,12 +92,19 @@ export default {
                 });
             },
         },
+        c_locales: {
+            immediate: true,
+            handler(locales) {
+                this.publicData.locales = this.settings.publicData.locales || locales;
+            },
+        },
     },
     created() {
-        if (this.settings.publicData && this.settings.publicData.locales)
+        if (this.settings.publicData && this.settings.publicData.locales) {
             this.selectedLocales = this.settings.publicData.locales.filter(
                 locale => !this.websiteLangs.includes(locale)
             );
+        }
 
         this.publicData = this.settings.publicData;
     },
