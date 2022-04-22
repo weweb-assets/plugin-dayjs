@@ -14,13 +14,20 @@ export default {
         Plugin API
     \================================================================================================*/
     locales: {},
-    lang: computed(() => wwLib.$store.getters['front/getLang']),
+    lang: computed(() => {
+        return wwLib.$store.getters['front/getLang'] in this.locales ? wwLib.$store.getters['front/getLang'] : 'en';
+    }),
 
     async onLoad(settings) {
         console.log('SETTINGS 📙', settings);
-        if (!settings.publicData.locales) return;
 
-        const selectedLocales = settings.publicData.locales;
+        let selectedLocales;
+        if (settings.publicData.locales) {
+            selectedLocales = settings.publicData.locales;
+        } else {
+            selectedLocales = wwLib.$store.getters['websiteData/getDesignInfo'].langs.map(lang => lang.lang);
+        }
+
         if (Array.isArray(selectedLocales)) {
             for (let locale of selectedLocales) {
                 if (!this.locales[locale]) this.locales[locale] = require(`dayjs/locale/${locale}.js`);
