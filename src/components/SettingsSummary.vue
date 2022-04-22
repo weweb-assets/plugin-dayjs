@@ -21,7 +21,10 @@ export default {
 <style lang="scss" scoped>
 .dayjs-settings-summary {
     display: flex;
-    align-items: baseline;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+
     &__icon {
         margin-right: var(--ww-spacing-02);
     }

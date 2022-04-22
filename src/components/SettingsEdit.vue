@@ -19,7 +19,7 @@
             <template #append-label>
                 <wwEditorInputSwitch
                     class="m-auto-left"
-                    :model-value="c_isCustomLocales"
+                    :model-value="isCustomLocales"
                     @update:modelValue="setIsCustomLocales"
                 />
             </template>
