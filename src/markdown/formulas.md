@@ -39,32 +39,32 @@ Returns the string of relative time to X <br/><br/>
 `toTime(date)` or `toTime(date, true)` <br/><br/>
 If you pass true as second parameter, you can get the value without the suffix
 
-### addSecond
+### addSeconds
 
 Returns a new date as a result of adding a given number of seconds to a date <br/><br/>
 `addSeconds(date, amount)`
 
-### addMinute
+### addMinutes
 
 Returns a new date as a result of adding a given number of minutes to a date <br/><br/>
 `addMinute(date, amount)`
 
-### addHour
+### addHours
 
 Returns a new date as a result of adding a given number of hours to a date <br/><br/>
 `addHour(date, amount)`
 
-### addDay
+### addDays
 
 Returns a new date as a result of adding a given number of days to a date <br/><br/>
 `addDay(date, amount)`
 
-### addMonth
+### addMonths
 
 Returns a new date as a result of adding a given number of months to a date <br/><br/>
 `addMonth(date, amount)`
 
-### addYear
+### addYears
 
 Returns a new date as a result of adding a given number of years to a date <br/><br/>
 `addYear(date, amount)`
