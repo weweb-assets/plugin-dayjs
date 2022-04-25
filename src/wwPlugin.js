@@ -27,7 +27,7 @@ export default {
         }
 
         console.log('LOCALES 📙', this.locales);
-        console.log('FORMAT 🐠', this.formatDate(Date.now()));
+        console.log('FORMAT 🐠', wwLib.wwPlugins.dayjs.formatDate(Date.now()));
     },
     /*=============================================m_ÔÔ_m=============================================\
         Dayjs
