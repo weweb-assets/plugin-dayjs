@@ -15,9 +15,21 @@ Return the current minute
 
 Return the current hour
 
+### getDayOfWeek
+
+Return the day of the week
+
 ### getDay
 
-Return the current day
+Return the day day of the month
+
+### getDayOfYear
+
+Return the day of the year
+
+### getWeekOfYear
+
+Return the week of the year
 
 ### getMonth
 

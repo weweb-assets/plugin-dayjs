@@ -18,14 +18,13 @@ for (let locale of localesList.default) {
 export default {
     /*=============================================m_ÔÔ_m=============================================\
         Plugin API
-    \================================================================================================*/ LOCALES: {},
+    \================================================================================================*/
     lang: computed(() => {
         return wwLib.$store.getters['front/getLang'] in LOCALES ? wwLib.$store.getters['front/getLang'] : 'en';
     }),
 
     async onLoad(settings) {
-        console.log('SETTINGS 📙', settings);
-        console.log('FORMAT', settings.publicData);
+        console.log('GET DAY', this.getDay());
     },
     /*=============================================m_ÔÔ_m=============================================\
         Dayjs
@@ -44,7 +43,16 @@ export default {
         return dayjs().get('hour');
     },
     getDay() {
+        return dayjs().date();
+    },
+    getDayOfWeek() {
         return dayjs().get('day');
+    },
+    getDayOfYear() {
+        return dayjs().dayOfYear();
+    },
+    getYeekOfYear() {
+        return dayjs().week();
     },
     getMonth() {
         return dayjs().get('month');
