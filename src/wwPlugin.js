@@ -25,7 +25,7 @@ export default {
 
     async onLoad(settings) {
         console.log('LOCALES 📙', LOCALES);
-        console.log(this.formatDate(date.Now()));
+        console.log(this.formatDate(Date.Now()));
     },
     /*=============================================m_ÔÔ_m=============================================\
         Dayjs
