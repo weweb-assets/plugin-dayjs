@@ -25,7 +25,7 @@ export default {
 
     async onLoad() {
         for (let locale of localesList.default) {
-            this.locales[locale.key] = require(`dayjs/locale/${locale.key}.js`);
+            this.locales[locale.key] = await require(`dayjs/locale/${locale.key}.js`);
         }
     },
     /*=============================================m_ÔÔ_m=============================================\
