@@ -19,7 +19,8 @@ export default {
         Plugin API
     \================================================================================================*/
     locales: {},
-    lang: computed(() => wwLib.$store.getters['front/getLang']),
+    // lang: computed(() => wwLib.$store.getters['front/getLang']),
+    lang: computed(() => 'en'),
 
     async onLoad() {
         for (let locale of localesList.default) {
