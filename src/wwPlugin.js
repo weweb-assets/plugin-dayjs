@@ -6,23 +6,26 @@ import './components/SettingsSummary.vue';
 /* wwEditor:end */
 
 import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-dayjs.extend(relativeTime);
-
 import * as localesList from 'dayjs/locale';
-let LOCALES = {};
+import relativeTime from 'dayjs/plugin/relativeTime';
+import dayOfYear from 'dayjs/plugin/dayOfYear';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
+dayjs.extend(relativeTime);
+dayjs.extend(dayOfYear);
+dayjs.extend(weekOfYear);
 
 export default {
     /*=============================================m_ÔÔ_m=============================================\
         Plugin API
     \================================================================================================*/
+    locales: {},
     lang: computed(() => {
-        return wwLib.$store.getters['front/getLang'] in LOCALES ? wwLib.$store.getters['front/getLang'] : 'en';
+        return wwLib.$store.getters['front/getLang'] in this.locales ? wwLib.$store.getters['front/getLang'] : 'en';
     }),
 
     async onLoad() {
         for (let locale of localesList.default) {
-            LOCALES[locale.key] = require(`dayjs/locale/${locale.key}.js`);
+            this.locales[locale.key] = require(`dayjs/locale/${locale.key}.js`);
         }
     },
     /*=============================================m_ÔÔ_m=============================================\
@@ -30,7 +33,7 @@ export default {
     \================================================================================================*/
     formatDate(date, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a string date';
-        return dayjs(date).locale(LOCALES[locale]).format(format);
+        return dayjs(date).locale(this.locales[locale]).format(format);
     },
     getSecond() {
         return dayjs().get('second');
@@ -72,62 +75,62 @@ export default {
     addSeconds(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a date';
         if (!amount) throw 'Second parameter must be a number';
-        return dayjs(date).add(amount, 'second').locale(LOCALES[locale]).format(format);
+        return dayjs(date).add(amount, 'second').locale(this.locales[locale]).format(format);
     },
     addMinutes(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a date';
         if (!amount) throw 'Second parameter must be a number';
-        return dayjs(date).add(amount, 'minute').locale(LOCALES[locale]).format(format);
+        return dayjs(date).add(amount, 'minute').locale(this.locales[locale]).format(format);
     },
     addHours(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a date';
         if (!amount) throw 'Second parameter must be a number';
-        return dayjs(date).add(amount, 'hour').locale(LOCALES[locale]).format(format);
+        return dayjs(date).add(amount, 'hour').locale(this.locales[locale]).format(format);
     },
     addDays(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a date';
         if (!amount) throw 'Second parameter must be a number';
-        return dayjs(date).add(amount, 'day').locale(LOCALES[locale]).format(format);
+        return dayjs(date).add(amount, 'day').locale(this.locales[locale]).format(format);
     },
     addMonths(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a date';
         if (!amount) throw 'Second parameter must be a number';
-        return dayjs(date).add(amount, 'month').locale(LOCALES[locale]).format(format);
+        return dayjs(date).add(amount, 'month').locale(this.locales[locale]).format(format);
     },
     addYears(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a date';
         if (!amount) throw 'Second parameter must be a number';
-        return dayjs(date).add(amount, 'year').locale(LOCALES[locale]).format(format);
+        return dayjs(date).add(amount, 'year').locale(this.locales[locale]).format(format);
     },
     setSecond(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a date';
         if (!amount) throw 'Second parameter must be a number';
-        return dayjs(date).set('second', amount).locale(LOCALES[locale]).format(format);
+        return dayjs(date).set('second', amount).locale(this.locales[locale]).format(format);
     },
     setMinute(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a date';
         if (!amount) throw 'First parameter must be a number';
-        return dayjs(date).set('minute', amount).locale(LOCALES[locale]).format(format);
+        return dayjs(date).set('minute', amount).locale(this.locales[locale]).format(format);
     },
     setHour(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a date';
         if (!amount) throw 'First parameter must be a number';
-        return dayjs(date).set('hout', amount).locale(LOCALES[locale]).format(format);
+        return dayjs(date).set('hout', amount).locale(this.locales[locale]).format(format);
     },
     setDay(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a date';
         if (!amount) throw 'First parameter must be a number';
-        return dayjs(date).set('day', amount).locale(LOCALES[locale]).format(format);
+        return dayjs(date).set('day', amount).locale(this.locales[locale]).format(format);
     },
     setMonth(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a date';
         if (!amount) throw 'First parameter must be a number';
-        return dayjs(date).set('month', amount).locale(LOCALES[locale]).format(format);
+        return dayjs(date).set('month', amount).locale(this.locales[locale]).format(format);
     },
     setYear(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang.value) {
         if (!date) throw 'First parameter must be a date';
         if (!amount) throw 'First parameter must be a number';
-        return dayjs(date).set('year', amount).locale(LOCALES[locale]).format(format);
+        return dayjs(date).set('year', amount).locale(this.locales[locale]).format(format);
     },
     compareDate(date1, date2, precision, float = false) {
         if (!date1) throw 'First parameter must be a date';
