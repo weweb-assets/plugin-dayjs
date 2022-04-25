@@ -38,20 +38,22 @@ export default {
             arrity: 0,
         },
         {
-            name: 'getDayOfYear',
-            arrity: 0,
-        },
-        {
-            name: 'getYeekOfYear',
-            arrity: 0,
-        },
-        {
             name: 'getMonth',
             arrity: 0,
         },
         {
             name: 'getYear',
             arrity: 0,
+        },
+        {
+            name: 'getDayOfYear',
+            arrity: 0,
+            parameters: [{ name: 'Date', type: 'string' }],
+        },
+        {
+            name: 'getWeekOfYear',
+            arrity: 0,
+            parameters: [{ name: 'Date', type: 'string' }],
         },
         {
             name: 'fromTime',

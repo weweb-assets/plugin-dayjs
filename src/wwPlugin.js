@@ -49,17 +49,19 @@ export default {
     getDayOfWeek() {
         return dayjs().get('day');
     },
-    getDayOfYear() {
-        return dayjs().dayOfYear();
-    },
-    getYeekOfYear() {
-        return dayjs().week();
-    },
     getMonth() {
         return dayjs().get('month');
     },
     getYear() {
         return dayjs().get('year');
+    },
+    getDayOfYear(date) {
+        if (!date) throw 'First parameter must be a date as string';
+        return dayjs(date).dayOfYear();
+    },
+    getWeekOfYear(date) {
+        if (!date) throw 'First parameter must be a date as string';
+        return dayjs(date).week();
     },
     fromTime(date, withoutSuffix = false) {
         if (!date) throw 'First parameter must be a date as string';
