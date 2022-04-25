@@ -11,9 +11,6 @@ dayjs.extend(relativeTime);
 
 import * as localesList from 'dayjs/locale';
 let LOCALES = {};
-for (let locale of localesList.default) {
-    LOCALES[locale.key] = require(`dayjs/locale/${locale.key}.js`);
-}
 
 export default {
     /*=============================================m_ÔÔ_m=============================================\
@@ -23,9 +20,10 @@ export default {
         return wwLib.$store.getters['front/getLang'] in LOCALES ? wwLib.$store.getters['front/getLang'] : 'en';
     }),
 
-    async onLoad(settings) {
-        console.log('LOCALES 📙', LOCALES);
-        console.log(this.formatDate(Date.now()));
+    async onLoad() {
+        for (let locale of localesList.default) {
+            LOCALES[locale.key] = require(`dayjs/locale/${locale.key}.js`);
+        }
     },
     /*=============================================m_ÔÔ_m=============================================\
         Dayjs
