@@ -24,7 +24,8 @@ export default {
     }),
 
     async onLoad(settings) {
-        console.log('GET DAY', this.getDay());
+        console.log('LOCALES 📙', LOCALE);
+        console.log(this.formatDate(date.Now()));
     },
     /*=============================================m_ÔÔ_m=============================================\
         Dayjs
