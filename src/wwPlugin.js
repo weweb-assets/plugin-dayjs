@@ -24,7 +24,7 @@ export default {
     }),
 
     async onLoad(settings) {
-        console.log('LOCALES 📙', LOCALE);
+        console.log('LOCALES 📙', LOCALES);
         console.log(this.formatDate(date.Now()));
     },
     /*=============================================m_ÔÔ_m=============================================\
