@@ -25,6 +25,9 @@ export default {
         for (let locale of localesList.default) {
             this.locales[locale.key] = require(`dayjs/locale/${locale.key}.js`);
         }
+
+        console.log('LOCALES 📙', this.locales);
+        console.log('FORMAT 🐠', this.formatDate(Date.now()));
     },
     /*=============================================m_ÔÔ_m=============================================\
         Dayjs
