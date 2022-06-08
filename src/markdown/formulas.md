@@ -15,9 +15,21 @@ Return the current minute
 
 Return the current hour
 
+### getDayOfWeek
+
+Return the day of the week
+
 ### getDay
 
-Return the current day
+Return the day of the month
+
+### getDayOfYear
+
+Return the day of the year
+
+### getWeekOfYear
+
+Return the week of the year
 
 ### getMonth
 
@@ -47,27 +59,27 @@ Returns a new date as a result of adding a given number of seconds to a date <br
 ### addMinutes
 
 Returns a new date as a result of adding a given number of minutes to a date <br/><br/>
-`addMinute(date, amount)`
+`addMinutes(date, amount)`
 
 ### addHours
 
 Returns a new date as a result of adding a given number of hours to a date <br/><br/>
-`addHour(date, amount)`
+`addHours(date, amount)`
 
 ### addDays
 
 Returns a new date as a result of adding a given number of days to a date <br/><br/>
-`addDay(date, amount)`
+`addDays(date, amount)`
 
 ### addMonths
 
 Returns a new date as a result of adding a given number of months to a date <br/><br/>
-`addMonth(date, amount)`
+`addMonths(date, amount)`
 
 ### addYears
 
 Returns a new date as a result of adding a given number of years to a date <br/><br/>
-`addYear(date, amount)`
+`addYears(date, amount)`
 
 ### setSecond
 

@@ -30,6 +30,10 @@ export default {
             arrity: 0,
         },
         {
+            name: 'getDayOfWeek',
+            arrity: 0,
+        },
+        {
             name: 'getDay',
             arrity: 0,
         },
@@ -40,6 +44,16 @@ export default {
         {
             name: 'getYear',
             arrity: 0,
+        },
+        {
+            name: 'getDayOfYear',
+            arrity: 0,
+            parameters: [{ name: 'Date', type: 'string' }],
+        },
+        {
+            name: 'getWeekOfYear',
+            arrity: 0,
+            parameters: [{ name: 'Date', type: 'string' }],
         },
         {
             name: 'fromTime',
