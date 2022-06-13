@@ -44,7 +44,7 @@ export default {
     formatDate(date, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a string date';
         return dayjs(date)
-            .locale(this.locales[locale] || 'en')
+            .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
     getSecond() {
