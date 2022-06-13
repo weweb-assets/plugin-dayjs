@@ -29,20 +29,13 @@ export default {
             this.locales[locale.key] = require(`dayjs/locale/${locale.key}.js`);
         }
 
-        watch(lang, lang => {
-            this.lang = lang;
-
-            console.log('LANG 🎉 :', this.lang);
-
-            // dddd, MMMM D, YYYY h:mm A
-            // DD/MM/YYYY hh:mm:ss
-
-            const print = this.formatDate(Date.now());
-            console.log('LOG 🎸 :', print);
-
-            const add = this.addDays(Date.now(), 1);
-            console.log('ADD 🐠 :', add);
-        });
+        watch(
+            lang,
+            lang => {
+                this.lang = lang;
+            },
+            { immediate: true }
+        );
     },
     /*=============================================m_ÔÔ_m=============================================\
         Dayjs
@@ -119,14 +112,10 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const d = dayjs(date)
+        return dayjs(date)
             .add(amount, 'day')
             .locale(this.locales[locale] || 'en')
             .format(format);
-
-        // console.log('From function 📒 ', d);
-
-        return d;
     },
     addMonths(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
