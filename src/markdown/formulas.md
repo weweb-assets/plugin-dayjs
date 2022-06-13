@@ -96,15 +96,16 @@ Returns a new date with the minute specified in parameters <br/><br/>
 Returns a new date with the hour specified in parameters <br/><br/>
 `setHour(date, amount)`
 
+### setDay
+
+Returns a new date for the current month with the day specified in parameters <br/><br/>
+`setDay(date, amount)`
+
 ### setDayOfWeek
 
 Returns a new date for the current week with the day specified in parameters <br/><br/>
 `setDayOfWeek(date, amount)`
 
-### setDayOfMonth
-
-Returns a new date for the current month with the day specified in parameters <br/><br/>
-`setDayOfMonth(date, amount)`
 
 ### setMonth
 
