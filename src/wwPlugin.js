@@ -34,6 +34,9 @@ export default {
             lang,
             lang => {
                 this.lang = lang;
+
+                const time = this.toTime(this.addDays(Date.now(), 2));
+                console.log(time);
             },
             { immediate: true }
         );
@@ -79,12 +82,22 @@ export default {
     },
     fromTime(date, withoutSuffix = false, locale = this.lang) {
         if (!date) throw 'First parameter must be a date as string';
+        const print = dayjs()
+            .locale(this.locales[locale] || this.backupLang)
+            .from(dayjs(date), withoutSuffix);
+        console.log(print);
+
         return dayjs()
             .locale(this.locales[locale] || this.backupLang)
             .from(dayjs(date), withoutSuffix);
     },
     toTime(date, withoutSuffix = false, locale = this.lang) {
         if (!date) throw 'First parameter must be a date as string';
+        const print = dayjs()
+            .locale(this.locales[locale] || this.backupLang)
+            .to(dayjs(date), withoutSuffix);
+        console.log(print);
+
         return dayjs()
             .locale(this.locales[locale] || this.backupLang)
             .to(dayjs(date), withoutSuffix);
@@ -215,6 +228,10 @@ export default {
         if (!date1) throw 'First parameter must be a date';
         if (!date2) throw 'Second parameter must be a date';
         if (!precision) throw 'Third parameter must be a string';
+
+        const print = dayjs(date2).diff(dayjs(date1), precision, float);
+        console.log(print);
+
         return dayjs(date2).diff(dayjs(date1), precision, float);
     },
 };
