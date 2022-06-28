@@ -10,10 +10,12 @@ import * as localesList from 'dayjs/locale';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 dayjs.extend(relativeTime);
 dayjs.extend(dayOfYear);
 dayjs.extend(weekOfYear);
+dayjs.extend(customParseFormat);
 
 export default {
     /*=============================================m_ÔÔ_m=============================================\
@@ -35,8 +37,8 @@ export default {
             lang => {
                 this.lang = lang;
 
-                const time = this.toTime(this.addDays(Date.now(), 2));
-                console.log(time);
+                const time = this.toTime(this.addYears(Date.now(), 5));
+                console.log('From mode dev:', time);
             },
             { immediate: true }
         );
@@ -82,10 +84,6 @@ export default {
     },
     fromTime(date, withoutSuffix = false, locale = this.lang) {
         if (!date) throw 'First parameter must be a date as string';
-        const print = dayjs()
-            .locale(this.locales[locale] || this.backupLang)
-            .from(dayjs(date), withoutSuffix);
-        console.log(print);
 
         return dayjs()
             .locale(this.locales[locale] || this.backupLang)
@@ -93,10 +91,11 @@ export default {
     },
     toTime(date, withoutSuffix = false, locale = this.lang) {
         if (!date) throw 'First parameter must be a date as string';
-        const print = dayjs()
-            .locale(this.locales[locale] || this.backupLang)
-            .to(dayjs(date), withoutSuffix);
-        console.log(print);
+        // const print = dayjs()
+        //     .locale(this.locales[locale] || this.backupLang)
+        //     .to(dayjs(date), withoutSuffix);
+
+        // console.log(print);
 
         return dayjs()
             .locale(this.locales[locale] || this.backupLang)
