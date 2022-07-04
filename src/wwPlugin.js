@@ -46,7 +46,12 @@ export default {
     formatDate(date, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a string date';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs(date, defaultFormats, false)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -76,19 +81,34 @@ export default {
     getDayOfYear(date) {
         if (!date) throw 'First parameter must be a date as string';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs(date, defaultFormats, false).dayOfYear();
     },
     getWeekOfYear(date) {
         if (!date) throw 'First parameter must be a date as string';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs(date, defaultFormats, false).week();
     },
     fromTime(date, withoutSuffix = false, locale = this.lang) {
         if (!date) throw 'First parameter must be a date as string';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs()
             .locale(this.locales[locale] || this.backupLang)
             .from(dayjs(date, defaultFormats, false), withoutSuffix);
@@ -96,7 +116,12 @@ export default {
     toTime(date, withoutSuffix = false, locale = this.lang) {
         if (!date) throw 'First parameter must be a date as string';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs()
             .locale(this.locales[locale] || this.backupLang)
             .to(dayjs(date, defaultFormats, false), withoutSuffix);
@@ -105,7 +130,12 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs(date, defaultFormats, false)
             .add(amount, 'second')
             .locale(this.locales[locale] || this.backupLang)
@@ -115,7 +145,12 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs(date, defaultFormats, false)
             .add(amount, 'minute')
             .locale(this.locales[locale] || this.backupLang)
@@ -125,7 +160,12 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs(date, defaultFormats, false)
             .add(amount, 'hour')
             .locale(this.locales[locale] || this.backupLang)
@@ -134,7 +174,12 @@ export default {
     addDays(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
 
         return dayjs(date, defaultFormats, false)
             .add(amount, 'day')
@@ -145,7 +190,12 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs(date, defaultFormats, false)
             .add(amount, 'month')
             .locale(this.locales[locale] || this.backupLang)
@@ -155,7 +205,12 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs(date, defaultFormats, false)
             .add(amount, 'year')
             .locale(this.locales[locale] || this.backupLang)
@@ -165,7 +220,12 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs(date, defaultFormats, false)
             .set('second', amount)
             .locale(this.locales[locale] || this.backupLang)
@@ -175,7 +235,12 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs(date, defaultFormats, false)
             .set('minute', amount)
             .locale(this.locales[locale] || this.backupLang)
@@ -185,14 +250,24 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs(date, defaultFormats, false)
             .set('hour', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
     setDay(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         else if (amount === 0)
@@ -206,7 +281,12 @@ export default {
             .format(format);
     },
     setDayOfWeek(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         else if (amount === 0)
@@ -220,7 +300,12 @@ export default {
             .format(format);
     },
     setMonth(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         if (amount === 0)
@@ -239,7 +324,12 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
         return dayjs(date, defaultFormats, false)
             .set('year', amount)
             .locale(this.locales[locale] || this.backupLang)
@@ -250,7 +340,12 @@ export default {
         if (!date2) throw 'Second parameter must be a date';
         if (!precision) throw 'Third parameter must be a string';
 
-        const defaultFormats = [this.settings.publicData.favoriteFormat, 'MMMM D, YYYY h:mm A', 'x'];
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'x',
+        ];
 
         return dayjs(date2, defaultFormats, false).diff(dayjs(date1, defaultFormats, false), precision, float);
     },
