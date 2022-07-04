@@ -127,6 +127,14 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         const defaultFormat = this.settings.publicData.favoriteFormat || 'MMMM D, YYYY h:mm A';
+        console.log(defaultFormat);
+
+        const value = dayjs(date, defaultFormat)
+            .add(amount, 'day')
+            .locale(this.locales[locale] || this.backupLang)
+            .format(format);
+        console.log(value);
+
         return dayjs(date, defaultFormat)
             .add(amount, 'day')
             .locale(this.locales[locale] || this.backupLang)
