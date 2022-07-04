@@ -98,8 +98,14 @@ Returns a new date with the hour specified in parameters <br/><br/>
 
 ### setDay
 
-Returns a new date with the day specified in parameters <br/><br/>
+Returns a new date for the current month with the day specified in parameters <br/><br/>
 `setDay(date, amount)`
+
+### setDayOfWeek
+
+Returns a new date for the current week with the day specified in parameters <br/><br/>
+`setDayOfWeek(date, amount)`
+
 
 ### setMonth
 
@@ -117,3 +123,7 @@ Indicates the difference between two date-time in the specified unit (seconds, m
 By default, compareDate will truncate the result to zero decimal places, returning an integer. If you want a floating point number, pass true as the third argument. <br/><br/>
 
 `compareDate(date1, date2, unit)` or `compareDate(date1, date2, unit, true)`
+
+Available units:
+
+`day` or `d`, `weed` or `w`, `quarter` or `Q`, `month` or `M`, `year` or `y`, `hour` or `h`, `minute` or `m`, `second` or `s`, `millisecond` or `ms`

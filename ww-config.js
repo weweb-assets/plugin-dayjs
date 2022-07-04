@@ -30,11 +30,11 @@ export default {
             arrity: 0,
         },
         {
-            name: 'getDayOfWeek',
+            name: 'getDay',
             arrity: 0,
         },
         {
-            name: 'getDay',
+            name: 'getDayOfWeek',
             arrity: 0,
         },
         {
@@ -108,7 +108,11 @@ export default {
             arrity: 2,
         },
         {
-            name: 'setDay',
+            name: 'setDayOfWeek',
+            arrity: 2,
+        },
+        {
+            name: 'setDayOfMonth',
             arrity: 2,
         },
         {
