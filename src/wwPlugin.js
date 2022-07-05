@@ -49,7 +49,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs(date, defaultFormats, false)
@@ -84,7 +84,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs(date, defaultFormats, false).dayOfYear();
@@ -95,7 +95,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs(date, defaultFormats, false).week();
@@ -106,7 +106,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs()
@@ -119,7 +119,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs()
@@ -133,7 +133,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs(date, defaultFormats, false)
@@ -148,7 +148,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs(date, defaultFormats, false)
@@ -163,7 +163,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs(date, defaultFormats, false)
@@ -177,7 +177,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
 
@@ -193,7 +193,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs(date, defaultFormats, false)
@@ -208,7 +208,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs(date, defaultFormats, false)
@@ -223,7 +223,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs(date, defaultFormats, false)
@@ -238,7 +238,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs(date, defaultFormats, false)
@@ -253,7 +253,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs(date, defaultFormats, false)
@@ -265,7 +265,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         if (!date) throw 'First parameter must be a date';
@@ -284,7 +284,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         if (!date) throw 'First parameter must be a date';
@@ -303,7 +303,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         if (!date) throw 'First parameter must be a date';
@@ -327,7 +327,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
         return dayjs(date, defaultFormats, false)
@@ -343,7 +343,7 @@ export default {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
-            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
         ];
 
