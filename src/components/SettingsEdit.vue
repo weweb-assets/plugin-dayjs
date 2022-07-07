@@ -7,21 +7,15 @@
                 </a>
             </template>
             <wwEditorInputText
-                type="text"
-                name="input-format"
                 placeholder="YYYY-MM-DDTHH:mm:ss.sssZ"
-                :model-value="publicData.inputFormat"
-                large
+                :model-value="settings.publicData.inputFormat"
                 @update:modelValue="changeInputFormat"
             />
         </wwEditorFormRow>
         <wwEditorFormRow label="Expected output format">
             <wwEditorInputText
-                type="text"
-                name="output-format"
                 placeholder="MMMM D, YYYY h:mm A"
-                :model-value="publicData.outputFormat"
-                large
+                :model-value="settings.publicData.outputFormat"
                 @update:modelValue="changeOutputFormat"
             />
         </wwEditorFormRow>
@@ -34,17 +28,18 @@ export default {
         settings: { type: Object, required: true },
     },
     emits: ['update:settings'],
-    data() {
-        return {
-            publicData: this.settings.publicData,
-        };
-    },
     methods: {
         changeInputFormat(inputFormat) {
-            this.$emit('update:settings', { publicData: { inputFormat } });
+            this.$emit('update:settings', {
+                ...this.settings,
+                publicData: { ...this.settings.publicData, inputFormat },
+            });
         },
         changeOutputFormat(outputFormat) {
-            this.$emit('update:settings', { publicData: { outputFormat } });
+            this.$emit('update:settings', {
+                ...this.settings,
+                publicData: { ...this.settings.publicData, outputFormat },
+            });
         },
     },
 };
