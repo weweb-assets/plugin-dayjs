@@ -13,7 +13,7 @@
                 @update:modelValue="changeInputFormat"
             />
         </wwEditorFormRow>
-        <wwEditorFormRow label="Expected output format">
+        <wwEditorFormRow label="Expected date output format">
             <wwEditorInputText
                 required
                 placeholder="MMMM D, YYYY h:mm A"
