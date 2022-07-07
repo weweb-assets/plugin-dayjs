@@ -1,7 +1,11 @@
 <template>
     <div class="dayjs-settings-summary">
         <wwEditorIcon large name="type" class="dayjs-settings-summary__icon" />
-        <span class="caption-m">{{ favoriteFormat }}</span>
+        <span class="caption-m">{{ inputFormat }}</span>
+    </div>
+    <div class="dayjs-settings-summary">
+        <wwEditorIcon large name="type" class="dayjs-settings-summary__icon" />
+        <span class="caption-m">{{ outputFormat }}</span>
     </div>
 </template>
 
@@ -11,8 +15,11 @@ export default {
         settings: { type: Object, required: true },
     },
     computed: {
-        favoriteFormat() {
-            return this.settings.publicData.favoriteFormat || '';
+        inputFormat() {
+            return this.settings.publicData.inputFormat || '';
+        },
+        outputFormat() {
+            return this.settings.publicData.outputFormat || '';
         },
     },
 };

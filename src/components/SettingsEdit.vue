@@ -1,18 +1,24 @@
 <template>
     <div class="dayjs-settings-edit">
-        <wwEditorFormRow label="Favorite format">
+        <wwEditorFormRow label="Expected date format input">
             <template #append-label>
                 <a class="dayjs-settings-edit__link" href="https://day.js.org/docs/en/display/format" target="_blank">
                     Find example here
                 </a>
             </template>
             <wwEditorInputText
-                type="text"
-                name="favorite-format"
+                required
+                placeholder="YYYY-MM-DDTHH:mm:ss.sssZ"
+                :model-value="settings.publicData.inputFormat"
+                @update:modelValue="changeInputFormat"
+            />
+        </wwEditorFormRow>
+        <wwEditorFormRow label="Expected date output format">
+            <wwEditorInputText
+                required
                 placeholder="MMMM D, YYYY h:mm A"
-                :model-value="settings.publicData.favoriteFormat"
-                large
-                @update:modelValue="changeFavoriteFormat"
+                :model-value="settings.publicData.outputFormat"
+                @update:modelValue="changeOutputFormat"
             />
         </wwEditorFormRow>
     </div>
@@ -24,14 +30,18 @@ export default {
         settings: { type: Object, required: true },
     },
     emits: ['update:settings'],
-    data() {
-        return {
-            publicData: {},
-        };
-    },
     methods: {
-        changeFavoriteFormat(favoriteFormat) {
-            this.$emit('update:settings', { publicData: { favoriteFormat } });
+        changeInputFormat(inputFormat) {
+            this.$emit('update:settings', {
+                ...this.settings,
+                publicData: { ...this.settings.publicData, inputFormat },
+            });
+        },
+        changeOutputFormat(outputFormat) {
+            this.$emit('update:settings', {
+                ...this.settings,
+                publicData: { ...this.settings.publicData, outputFormat },
+            });
         },
     },
 };
