@@ -1,6 +1,6 @@
 <template>
     <div class="dayjs-settings-edit">
-        <wwEditorFormRow label="Favorite format">
+        <wwEditorFormRow label="Expected format">
             <template #append-label>
                 <a class="dayjs-settings-edit__link" href="https://day.js.org/docs/en/display/format" target="_blank">
                     Find example here
