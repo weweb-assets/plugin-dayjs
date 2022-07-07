@@ -56,31 +56,65 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    getSecond() {
-        return dayjs().get('second');
+    getSecond(date = new Date().toISOString()) {
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
+            'x',
+        ];
+        return dayjs(date, defaultFormats, false).get('second');
     },
-    getMinute() {
-        return dayjs().get('minute');
+    getMinute(date = new Date().toISOString()) {
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
+            'x',
+        ];
+        return dayjs(date, defaultFormats, false).get('minute');
     },
-    getHour() {
-        return dayjs().get('hour');
+    getHour(date = new Date().toISOString()) {
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
+            'x',
+        ];
+        return dayjs(date, defaultFormats, false).get('hour');
     },
-    getDay() {
-        return dayjs().date();
+    getDay(date = new Date().toISOString()) {
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
+            'x',
+        ];
+        return dayjs(date, defaultFormats, false).date();
     },
-    getDayOfWeek() {
-        return dayjs().get('day');
+    getDayOfWeek(date = new Date().toISOString()) {
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
+            'x',
+        ];
+        return dayjs(date, defaultFormats, false).get('day');
     },
-    getMonth() {
+    getMonth(date = new Date().toISOString()) {
+        const defaultFormats = [
+            this.settings.publicData.favoriteFormat,
+            'MMMM D, YYYY h:mm A',
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
+            'x',
+        ];
         // Month (January as 0, December as 11) - https://day.js.org/docs/en/get-set/get
-        return dayjs().get('month') + 1;
+        return dayjs(date, defaultFormats, false).get('month') + 1;
     },
     getYear() {
         return dayjs().get('year');
     },
-    getDayOfYear(date) {
-        if (!date) throw 'First parameter must be a date as string';
-
+    getDayOfYear(date = new Date().toISOString()) {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
@@ -89,9 +123,7 @@ export default {
         ];
         return dayjs(date, defaultFormats, false).dayOfYear();
     },
-    getWeekOfYear(date) {
-        if (!date) throw 'First parameter must be a date as string';
-
+    getWeekOfYear(date = new Date().toISOString()) {
         const defaultFormats = [
             this.settings.publicData.favoriteFormat,
             'MMMM D, YYYY h:mm A',
