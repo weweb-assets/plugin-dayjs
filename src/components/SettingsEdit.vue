@@ -1,6 +1,6 @@
 <template>
     <div class="dayjs-settings-edit">
-        <wwEditorFormRow label="Expected format">
+        <wwEditorFormRow label="Expected date format input">
             <template #append-label>
                 <a class="dayjs-settings-edit__link" href="https://day.js.org/docs/en/display/format" target="_blank">
                     Find example here
@@ -8,11 +8,21 @@
             </template>
             <wwEditorInputText
                 type="text"
-                name="favorite-format"
-                placeholder="MMMM D, YYYY h:mm A"
-                :model-value="settings.publicData.favoriteFormat"
+                name="input-format"
+                placeholder="YYYY-MM-DDTHH:mm:ss.sssZ"
+                :model-value="publicData.inputFormat"
                 large
-                @update:modelValue="changeFavoriteFormat"
+                @update:modelValue="changeInputFormat"
+            />
+        </wwEditorFormRow>
+        <wwEditorFormRow label="Expected output format">
+            <wwEditorInputText
+                type="text"
+                name="output-format"
+                placeholder="MMMM D, YYYY h:mm A"
+                :model-value="publicData.outputFormat"
+                large
+                @update:modelValue="changeOutputFormat"
             />
         </wwEditorFormRow>
     </div>
@@ -26,12 +36,15 @@ export default {
     emits: ['update:settings'],
     data() {
         return {
-            publicData: {},
+            publicData: this.settings.publicData,
         };
     },
     methods: {
-        changeFavoriteFormat(favoriteFormat) {
-            this.$emit('update:settings', { publicData: { favoriteFormat } });
+        changeInputFormat(inputFormat) {
+            this.$emit('update:settings', { publicData: { inputFormat } });
+        },
+        changeOutputFormat(outputFormat) {
+            this.$emit('update:settings', { publicData: { outputFormat } });
         },
     },
 };
