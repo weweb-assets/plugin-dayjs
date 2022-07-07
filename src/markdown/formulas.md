@@ -5,39 +5,48 @@ Returns a date in the favorite format or requested format. For example, format `
 
 ### getSecond
 
-Return the current second
+Return the second of the given date, if no date is given, return the current second
+`getSecond(date)`
 
 ### getMinute
 
-Return the current minute
+Return the minute of the given date, if no date is given, return the current minute
+`getMinute(date)`
 
 ### getHour
 
-Return the current hour
+Return the hour of the given date, if no date is given, return the current second
+`getHour(date)`
 
 ### getDayOfWeek
 
-Return the day of the week
+Return the day of the week of the given date, if no date is given, return the current day of the week
+`getDayOfWeek(date)`
 
 ### getDay
 
-Return the day of the month
+Return the day of the month of the given date, if no date is given, return the current day of the month
+`getDay(date)`
 
 ### getDayOfYear
 
-Return the day of the year
+Return the day of the year of the given date, if no date is given, return the current day of the year
+`getDayOfYear(date)`
 
 ### getWeekOfYear
 
-Return the week of the year
+Return the week of the year of the given date, if no date is given, return the current week of the year
+`getWeekOfYear(date)`
 
 ### getMonth
 
-Return the current month
+Return the month of the given date, if no date is given, return the current month
+`getMonth(date)`
 
 ### getYear
 
-Return the current year
+Return the year of the given date, if no date is given, return the current year
+`getYear(date)`
 
 ### fromTime
 

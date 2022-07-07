@@ -413,7 +413,6 @@ export default {
         const defaultFormats = [
             this.settings.publicData.inputFormat,
             this.settings.publicData.outputFormat,
-            format,
             'MMMM D, YYYY h:mm A',
             'YYYY-MM-DDTHH:mm:ss.sssZ',
             'x',
