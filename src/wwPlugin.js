@@ -120,7 +120,14 @@ export default {
         return dayjs(date, defaultFormats, false).get('month') + 1;
     },
     getYear() {
-        return dayjs().get('year');
+        const defaultFormats = [
+            this.settings.publicData.inputFormat,
+            this.settings.publicData.outputFormat,
+            'MMMM D, YYYY h:mm A',
+            'YYYY-MM-DDTHH:mm:ss.sssZ',
+            'x',
+        ];
+        return dayjs(date, defaultFormats, false).get('year');
     },
     getDayOfYear(date = new Date().toISOString()) {
         const defaultFormats = [
