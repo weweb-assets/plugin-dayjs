@@ -219,24 +219,16 @@ export default {
             .format(format);
     },
     setMonth(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         if (amount === 0)
-            return dayjs(date, defaultFormats, false)
+            return dayjs(date, [...this.formatInputs, format], false)
                 .locale(this.locales[locale] || this.backupLang)
                 .format(format);
 
         // Month (January as 0, December as 11) - https://day.js.org/docs/en/get-set/set
         amount -= 1;
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .set('month', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
