@@ -45,6 +45,7 @@ export default {
         watch(
             formatInputs,
             formatInputs => {
+                console.log(formatInputs);
                 if (!formatInputs) return;
                 this.formatInputs = [
                     ...(formatInputs.length ? formatInputs : []),

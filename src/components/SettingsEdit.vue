@@ -36,7 +36,6 @@
                 </a>
             </template>
             <wwEditorInputText
-                required
                 placeholder="YYYY-MM-DDTHH:mm:ss.sssZ"
                 :model-value="settings.publicData.inputFormat"
                 @update:modelValue="changeInputFormat"
@@ -44,7 +43,6 @@
         </wwEditorFormRow>
         <wwEditorFormRow label="Expected date output format">
             <wwEditorInputText
-                required
                 placeholder="MMMM D, YYYY h:mm A"
                 :model-value="settings.publicData.outputFormat"
                 @update:modelValue="changeOutputFormat"
@@ -59,11 +57,6 @@ export default {
         settings: { type: Object, required: true },
     },
     emits: ['update:settings'],
-    data() {
-        return {
-            internalInputFormatList: ['MMMM D, YYYY h:mm A', 'YYYY-MM-DDTHH:mm:ss.sssZ'],
-        };
-    },
     mounted() {
         if (!this.settings.publicData.inputFormatList) {
             this.$emit('update:settings', {

@@ -1,11 +1,13 @@
 <template>
     <div class="dayjs-settings-summary">
         <wwEditorIcon large name="type" class="dayjs-settings-summary__icon" />
-        <span class="caption-m">{{ inputFormat }}</span>
+        <span class="body-2 dayjs-settings-summary__text">{{
+            inputFormatList.join(', ') || 'Input formats not defined'
+        }}</span>
     </div>
     <div class="dayjs-settings-summary">
         <wwEditorIcon large name="type" class="dayjs-settings-summary__icon" />
-        <span class="caption-m">{{ outputFormat }}</span>
+        <span class="body-2">{{ outputFormat || 'Output format not defined' }}</span>
     </div>
 </template>
 
@@ -15,8 +17,8 @@ export default {
         settings: { type: Object, required: true },
     },
     computed: {
-        inputFormat() {
-            return this.settings.publicData.inputFormat || '';
+        inputFormatList() {
+            return this.settings.publicData.inputFormatList || [];
         },
         outputFormat() {
             return this.settings.publicData.outputFormat || '';
@@ -34,6 +36,12 @@ export default {
 
     &__icon {
         margin-right: var(--ww-spacing-02);
+    }
+
+    &__text {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 }
 </style>
