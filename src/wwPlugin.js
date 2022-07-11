@@ -24,9 +24,11 @@ export default {
     locales: {},
     lang: 'en',
     backupLang: 'en',
+    inputFormats: [],
 
     async onLoad() {
         const lang = computed(() => wwLib.$store.getters['front/getLang']);
+        const formatInputs = computed(() => this.settings.publicData.inputFormatList);
 
         for (let locale of localesList.default) {
             this.locales[locale.key] = require(`dayjs/locale/${locale.key}.js`);
@@ -36,6 +38,21 @@ export default {
             lang,
             lang => {
                 this.lang = lang;
+            },
+            { immediate: true }
+        );
+
+        watch(
+            formatInputs,
+            formatInputs => {
+                if (!formatInputs) return;
+                this.formatInputs = [
+                    ...(formatInputs.length ? formatInputs : []),
+                    this.settings.publicData.outputFormat,
+                    'MMMM D, YYYY h:mm A',
+                    'YYYY-MM-DDTHH:mm:ss.sssZ',
+                    'x',
+                ];
             },
             { immediate: true }
         );
