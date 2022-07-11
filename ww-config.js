@@ -108,11 +108,11 @@ export default {
             arrity: 2,
         },
         {
-            name: 'setDayOfWeek',
+            name: 'setDay',
             arrity: 2,
         },
         {
-            name: 'setDayOfMonth',
+            name: 'setDayOfWeek',
             arrity: 2,
         },
         {
