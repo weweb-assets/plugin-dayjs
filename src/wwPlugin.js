@@ -45,15 +45,16 @@ export default {
         watch(
             formatInputs,
             formatInputs => {
-                console.log(formatInputs);
                 if (!formatInputs) return;
                 this.formatInputs = [
                     ...(formatInputs.length ? formatInputs : []),
-                    this.settings.publicData.outputFormat,
                     'MMMM D, YYYY h:mm A',
                     'YYYY-MM-DDTHH:mm:ss.sssZ',
                     'x',
                 ];
+
+                if (this.settings.publicData.outputFormat)
+                    this.formatInputs.push(this.settings.publicData.outputFormat);
             },
             { immediate: true }
         );
@@ -64,150 +65,57 @@ export default {
     formatDate(date, format = this.settings.publicData.outputFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a string date';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
     getSecond(date = new Date().toISOString()) {
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false).get('second');
+        return dayjs(date, this.formatInputs, false).get('second');
     },
     getMinute(date = new Date().toISOString()) {
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false).get('minute');
+        return dayjs(date, this.formatInputs, false).get('minute');
     },
     getHour(date = new Date().toISOString()) {
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false).get('hour');
+        return dayjs(date, this.formatInputs, false).get('hour');
     },
     getDay(date = new Date().toISOString()) {
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false).date();
+        return dayjs(date, this.formatInputs, false).date();
     },
     getDayOfWeek(date = new Date().toISOString()) {
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false).get('day');
+        return dayjs(date, this.formatInputs, false).get('day');
     },
     getMonth(date = new Date().toISOString()) {
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
         // Month (January as 0, December as 11) - https://day.js.org/docs/en/get-set/get
-        return dayjs(date, defaultFormats, false).get('month') + 1;
+        return dayjs(date, this.formatInputs, false).get('month') + 1;
     },
-    getYear() {
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false).get('year');
+    getYear(date = new Date().toISOString()) {
+        return dayjs(date, this.formatInputs, false).get('year');
     },
     getDayOfYear(date = new Date().toISOString()) {
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false).dayOfYear();
+        return dayjs(date, this.formatInputs, false).dayOfYear();
     },
     getWeekOfYear(date = new Date().toISOString()) {
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false).week();
+        return dayjs(date, this.formatInputs, false).week();
     },
     fromTime(date, withoutSuffix = false, locale = this.lang) {
         if (!date) throw 'First parameter must be a date as string';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
         return dayjs()
             .locale(this.locales[locale] || this.backupLang)
-            .from(dayjs(date, defaultFormats, false), withoutSuffix);
+            .from(dayjs(date, this.formatInputs, false), withoutSuffix);
     },
     toTime(date, withoutSuffix = false, locale = this.lang) {
         if (!date) throw 'First parameter must be a date as string';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
         return dayjs()
             .locale(this.locales[locale] || this.backupLang)
-            .to(dayjs(date, defaultFormats, false), withoutSuffix);
+            .to(dayjs(date, this.formatInputs, false), withoutSuffix);
     },
     addSeconds(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .add(amount, 'second')
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -216,15 +124,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .add(amount, 'minute')
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -233,15 +133,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .add(amount, 'hour')
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -249,16 +141,8 @@ export default {
     addDays(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
 
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .add(amount, 'day')
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -267,15 +151,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .add(amount, 'month')
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -284,15 +160,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .add(amount, 'year')
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -301,15 +169,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .set('second', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -318,15 +178,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .set('minute', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -335,57 +187,33 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .set('hour', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
     setDay(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         else if (amount === 0)
-            return dayjs(date, defaultFormats, false)
+            return dayjs(date, [...this.formatInputs, format], false)
                 .locale(this.locales[locale] || this.backupLang)
                 .format(format);
 
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .date(amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
     setDayOfWeek(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         else if (amount === 0)
-            return dayjs(date, defaultFormats, false)
+            return dayjs(date, [...this.formatInputs, format], false)
                 .locale(this.locales[locale] || this.backupLang)
                 .format(format);
 
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .set('day', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -417,15 +245,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            format,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-        return dayjs(date, defaultFormats, false)
+        return dayjs(date, [...this.formatInputs, format], false)
             .set('year', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -435,14 +255,6 @@ export default {
         if (!date2) throw 'Second parameter must be a date';
         if (!precision) throw 'Third parameter must be a string';
 
-        const defaultFormats = [
-            this.settings.publicData.inputFormat,
-            this.settings.publicData.outputFormat,
-            'MMMM D, YYYY h:mm A',
-            'YYYY-MM-DDTHH:mm:ss.sssZ',
-            'x',
-        ];
-
-        return dayjs(date2, defaultFormats, false).diff(dayjs(date1, defaultFormats, false), precision, float);
+        return dayjs(date2, this.formatInputs, false).diff(dayjs(date1, this.formatInputs, false), precision, float);
     },
 };

@@ -1,12 +1,16 @@
 <template>
     <div class="dayjs-settings-edit">
-        <wwEditorFormRow label="Expected date formats input">
+        <wwEditorFormRow label="Date formats input">
             <template #append-label>
+                <a class="dayjs-settings-edit__link" href="https://day.js.org/docs/en/display/format" target="_blank">
+                    Find example here
+                </a>
                 <div class="action-container">
                     <button type="button" class="ww-editor-button -icon -small -primary action" @click="addFormat">
                         <wwEditorIcon name="add" /> Add
                     </button>
                 </div>
+                <wwEditorQuestionMark class="ml-2" tooltip-position="bottom-right" tooltip-name="dayjs-input-formats" />
             </template>
             <div
                 v-for="(format, index) in settings.publicData.inputFormatList"
@@ -15,7 +19,7 @@
             >
                 <wwEditorInputText
                     class="format-item__field"
-                    placeholder="Name"
+                    placeholder="YYYY-MM-DDTHH:mm:ss.sssZ"
                     :model-value="format"
                     @update:modelValue="updateInputFormatList(index, (value = $event))"
                 />
@@ -29,19 +33,7 @@
                 </button>
             </div>
         </wwEditorFormRow>
-        <wwEditorFormRow label="Expected date format input">
-            <template #append-label>
-                <a class="dayjs-settings-edit__link" href="https://day.js.org/docs/en/display/format" target="_blank">
-                    Find example here
-                </a>
-            </template>
-            <wwEditorInputText
-                placeholder="YYYY-MM-DDTHH:mm:ss.sssZ"
-                :model-value="settings.publicData.inputFormat"
-                @update:modelValue="changeInputFormat"
-            />
-        </wwEditorFormRow>
-        <wwEditorFormRow label="Expected date output format">
+        <wwEditorFormRow label="Date format output">
             <wwEditorInputText
                 placeholder="MMMM D, YYYY h:mm A"
                 :model-value="settings.publicData.outputFormat"
@@ -89,12 +81,6 @@ export default {
             this.$emit('update:settings', {
                 ...this.settings,
                 publicData: { ...this.settings.publicData, inputFormatList: list },
-            });
-        },
-        changeInputFormat(inputFormat) {
-            this.$emit('update:settings', {
-                ...this.settings,
-                publicData: { ...this.settings.publicData, inputFormat },
             });
         },
         changeOutputFormat(outputFormat) {
@@ -151,7 +137,7 @@ export default {
         flex-wrap: no-wrap;
         justify-content: flex-start;
         align-items: center;
-        margin-top: var(--ww-spacing-02);
+        margin-bottom: var(--ww-spacing-02);
 
         &__field {
             width: 100%;
