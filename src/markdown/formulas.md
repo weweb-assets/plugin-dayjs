@@ -129,9 +129,9 @@ Returns a new date with the year specified in parameters <br/><br/>
 ### compareDate
 
 Indicates the difference between two date-time in the specified unit (seconds, minutes, etc...). <br/><br/>
-By default, compareDate will truncate the result to zero decimal places, returning an integer. If you want a floating point number, pass true as the third argument. <br/><br/>
+By default, compareDate will truncate the result to zero decimal places, returning an integer. If you want a floating point number, pass true as the fourth argument. <br/><br/>
 
-`compareDate(date1, date2, unit)` or `compareDate(date1, date2, unit, true)`
+`compareDate(date1, date2, unit)` or `compareDate(date1, date2, unit, floating)`
 
 Available units:
 
