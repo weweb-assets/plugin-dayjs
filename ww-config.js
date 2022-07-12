@@ -10,6 +10,10 @@ export default {
     },
     formulas: [
         {
+            name: 'toDateISO',
+            arrity: 0,
+        },
+        {
             name: 'formatDate',
             arrity: 1,
             parameters: [

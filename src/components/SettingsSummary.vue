@@ -1,12 +1,6 @@
 <template>
     <div class="dayjs-settings-summary">
         <wwEditorIcon large name="type" class="dayjs-settings-summary__icon" />
-        <span class="body-2 dayjs-settings-summary__text">{{
-            inputFormatList.join(', ') || 'Input formats not defined'
-        }}</span>
-    </div>
-    <div class="dayjs-settings-summary">
-        <wwEditorIcon large name="type" class="dayjs-settings-summary__icon" />
         <span class="body-2">{{ outputFormat || 'Output format not defined' }}</span>
     </div>
 </template>
