@@ -11,9 +11,6 @@ export default {
         settings: { type: Object, required: true },
     },
     computed: {
-        inputFormatList() {
-            return this.settings.publicData.inputFormatList || [];
-        },
         outputFormat() {
             return this.settings.publicData.outputFormat || '';
         },
@@ -30,12 +27,6 @@ export default {
 
     &__icon {
         margin-right: var(--ww-spacing-02);
-    }
-
-    &__text {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
     }
 }
 </style>
