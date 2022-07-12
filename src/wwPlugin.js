@@ -24,7 +24,7 @@ export default {
     locales: {},
     lang: 'en',
     backupLang: 'en',
-    inputFormats: [],
+    formatInputs: [],
 
     async onLoad() {
         const lang = computed(() => wwLib.$store.getters['front/getLang']);
