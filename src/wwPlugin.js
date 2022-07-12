@@ -61,61 +61,57 @@ export default {
     formatDate(date, format = this.settings.publicData.outputFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a string date';
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
     getSecond(date = new Date().toISOString()) {
-        return dayjs(date, [...this.formatInputs], false).get('second');
+        return dayjs(date, [...this.formatInputs], true).get('second');
     },
     getMinute(date = new Date().toISOString()) {
-        console.log(date);
-        console.log([...this.formatInputs]);
-        const r = dayjs(date, [...this.formatInputs]);
-        console.log(r);
-        return dayjs(date, [...this.formatInputs], false).get('minute');
+        return dayjs(date, [...this.formatInputs], true).get('minute');
     },
     getHour(date = new Date().toISOString()) {
-        return dayjs(date, [...this.formatInputs], false).get('hour');
+        return dayjs(date, [...this.formatInputs], true).get('hour');
     },
     getDay(date = new Date().toISOString()) {
-        return dayjs(date, [...this.formatInputs], false).date();
+        return dayjs(date, [...this.formatInputs], true).date();
     },
     getDayOfWeek(date = new Date().toISOString()) {
-        return dayjs(date, [...this.formatInputs], false).get('day');
+        return dayjs(date, [...this.formatInputs], true).get('day');
     },
     getMonth(date = new Date().toISOString()) {
         // Month (January as 0, December as 11) - https://day.js.org/docs/en/get-set/get
-        return dayjs(date, [...this.formatInputs], false).get('month') + 1;
+        return dayjs(date, [...this.formatInputs], true).get('month') + 1;
     },
     getYear(date = new Date().toISOString()) {
-        return dayjs(date, [...this.formatInputs], false).get('year');
+        return dayjs(date, [...this.formatInputs], true).get('year');
     },
     getDayOfYear(date = new Date().toISOString()) {
-        return dayjs(date, [...this.formatInputs], false).dayOfYear();
+        return dayjs(date, [...this.formatInputs], true).dayOfYear();
     },
     getWeekOfYear(date = new Date().toISOString()) {
-        return dayjs(date, [...this.formatInputs], false).week();
+        return dayjs(date, [...this.formatInputs], true).week();
     },
     fromTime(date, withoutSuffix = false, locale = this.lang) {
         if (!date) throw 'First parameter must be a date as string';
 
         return dayjs()
             .locale(this.locales[locale] || this.backupLang)
-            .from(dayjs(date, [...this.formatInputs], false), withoutSuffix);
+            .from(dayjs(date, [...this.formatInputs], true), withoutSuffix);
     },
     toTime(date, withoutSuffix = false, locale = this.lang) {
         if (!date) throw 'First parameter must be a date as string';
 
         return dayjs()
             .locale(this.locales[locale] || this.backupLang)
-            .to(dayjs(date, [...this.formatInputs], false), withoutSuffix);
+            .to(dayjs(date, [...this.formatInputs], true), withoutSuffix);
     },
     addSeconds(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .add(amount, 'second')
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -124,7 +120,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .add(amount, 'minute')
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -133,7 +129,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .add(amount, 'hour')
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -142,7 +138,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .add(amount, 'day')
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -151,7 +147,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .add(amount, 'month')
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -160,7 +156,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .add(amount, 'year')
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -169,7 +165,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .set('second', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -178,7 +174,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .set('minute', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -187,7 +183,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .set('hour', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -196,11 +192,11 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         else if (amount === 0)
-            return dayjs(date, [...this.formatInputs, format], false)
+            return dayjs(date, [...this.formatInputs, format], true)
                 .locale(this.locales[locale] || this.backupLang)
                 .format(format);
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .date(amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -209,11 +205,11 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         else if (amount === 0)
-            return dayjs(date, [...this.formatInputs, format], false)
+            return dayjs(date, [...this.formatInputs, format], true)
                 .locale(this.locales[locale] || this.backupLang)
                 .format(format);
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .set('day', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -222,13 +218,13 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         if (amount === 0)
-            return dayjs(date, [...this.formatInputs, format], false)
+            return dayjs(date, [...this.formatInputs, format], true)
                 .locale(this.locales[locale] || this.backupLang)
                 .format(format);
 
         // Month (January as 0, December as 11) - https://day.js.org/docs/en/get-set/set
         amount -= 1;
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .set('month', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -237,7 +233,7 @@ export default {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
-        return dayjs(date, [...this.formatInputs, format], false)
+        return dayjs(date, [...this.formatInputs, format], true)
             .set('year', amount)
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
@@ -247,6 +243,6 @@ export default {
         if (!date2) throw 'Second parameter must be a date';
         if (!precision) throw 'Third parameter must be a string';
 
-        return dayjs(date2, this.formatInputs, false).diff(dayjs(date1, this.formatInputs, false), precision, float);
+        return dayjs(date2, this.formatInputs, true).diff(dayjs(date1, this.formatInputs, true), precision, float);
     },
 };
