@@ -66,50 +66,50 @@ export default {
             .format(format);
     },
     getSecond(date = new Date().toISOString()) {
-        return dayjs(date, this.formatInputs, false).get('second');
+        return dayjs(date, [...this.formatInputs], false).get('second');
     },
     getMinute(date = new Date().toISOString()) {
         console.log(date);
-        console.log(this.formatInputs);
-        const r = dayjs(date, this.formatInputs);
+        console.log([...this.formatInputs]);
+        const r = dayjs(date, [...this.formatInputs]);
         console.log(r);
-        return dayjs(date, this.formatInputs, false).get('minute');
+        return dayjs(date, [...this.formatInputs], false).get('minute');
     },
     getHour(date = new Date().toISOString()) {
-        return dayjs(date, this.formatInputs, false).get('hour');
+        return dayjs(date, [...this.formatInputs], false).get('hour');
     },
     getDay(date = new Date().toISOString()) {
-        return dayjs(date, this.formatInputs, false).date();
+        return dayjs(date, [...this.formatInputs], false).date();
     },
     getDayOfWeek(date = new Date().toISOString()) {
-        return dayjs(date, this.formatInputs, false).get('day');
+        return dayjs(date, [...this.formatInputs], false).get('day');
     },
     getMonth(date = new Date().toISOString()) {
         // Month (January as 0, December as 11) - https://day.js.org/docs/en/get-set/get
-        return dayjs(date, this.formatInputs, false).get('month') + 1;
+        return dayjs(date, [...this.formatInputs], false).get('month') + 1;
     },
     getYear(date = new Date().toISOString()) {
-        return dayjs(date, this.formatInputs, false).get('year');
+        return dayjs(date, [...this.formatInputs], false).get('year');
     },
     getDayOfYear(date = new Date().toISOString()) {
-        return dayjs(date, this.formatInputs, false).dayOfYear();
+        return dayjs(date, [...this.formatInputs], false).dayOfYear();
     },
     getWeekOfYear(date = new Date().toISOString()) {
-        return dayjs(date, this.formatInputs, false).week();
+        return dayjs(date, [...this.formatInputs], false).week();
     },
     fromTime(date, withoutSuffix = false, locale = this.lang) {
         if (!date) throw 'First parameter must be a date as string';
 
         return dayjs()
             .locale(this.locales[locale] || this.backupLang)
-            .from(dayjs(date, this.formatInputs, false), withoutSuffix);
+            .from(dayjs(date, [...this.formatInputs], false), withoutSuffix);
     },
     toTime(date, withoutSuffix = false, locale = this.lang) {
         if (!date) throw 'First parameter must be a date as string';
 
         return dayjs()
             .locale(this.locales[locale] || this.backupLang)
-            .to(dayjs(date, this.formatInputs, false), withoutSuffix);
+            .to(dayjs(date, [...this.formatInputs], false), withoutSuffix);
     },
     addSeconds(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
