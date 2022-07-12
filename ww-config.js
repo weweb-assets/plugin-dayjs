@@ -11,7 +11,7 @@ export default {
     formulas: [
         {
             name: 'toDateISO',
-            arrity: 0,
+            arrity: 1,
         },
         {
             name: 'formatDate',
