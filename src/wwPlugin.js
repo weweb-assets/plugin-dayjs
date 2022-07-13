@@ -18,10 +18,15 @@ dayjs.extend(weekOfYear);
 dayjs.extend(customParseFormat);
 
 // Date ISO
-const _dateISO = ref(new Date().toISOString());
+const getDateIso = () => {
+    const tzoffset = new Date().getTimezoneOffset() * 60000;
+    const localISOTime = new Date(Date.now() - tzoffset).toISOString();
+    return localISOTime;
+}
+const _dateISO = ref(getDateIso());
 
 setInterval(() => {
-    _dateISO.value = new Date().toISOString();
+    _dateISO.value = getDateIso();
 }, 1000);
 
 export default {
