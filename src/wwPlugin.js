@@ -1,4 +1,4 @@
-import { computed, watch } from 'vue';
+import { computed, watch, ref } from 'vue';
 
 /* wwEditor:start */
 import './components/SettingsEdit.vue';
@@ -16,6 +16,13 @@ dayjs.extend(relativeTime);
 dayjs.extend(dayOfYear);
 dayjs.extend(weekOfYear);
 dayjs.extend(customParseFormat);
+
+// Date ISO
+const _dateISO = ref(new Date().toISOString());
+
+setInterval(() => {
+    _dateISO.value = new Date().toISOString();
+}, 1000);
 
 export default {
     /*=============================================m_ÔÔ_m=============================================\
@@ -43,6 +50,9 @@ export default {
     /*=============================================m_ÔÔ_m=============================================\
         Dayjs
     \================================================================================================*/
+    dateISO() {
+        return _dateISO.value;
+    },
     toDateISO(date, inputFormat = this.settings.publicData.favoriteFormat) {
         if (!date) throw 'First parameter must be a string date';
         inputFormat = inputFormat && inputFormat.length ? inputFormat : 'YYYY-MM-DDTHH:mm:ss.sssZ';
