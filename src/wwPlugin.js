@@ -45,7 +45,8 @@ export default {
     \================================================================================================*/
     toDateISO(date, inputFormat = this.settings.publicData.favoriteFormat) {
         if (!date) throw 'First parameter must be a string date';
-        return dayjs(date, inputFormat || 'YYYY-MM-DDTHH:mm:ss.sssZ', false).toISOString();
+        inputFormat = inputFormat && inputFormat.length ? inputFormat : 'YYYY-MM-DDTHH:mm:ss.sssZ';
+        return dayjs(date, inputFormat, false).toISOString();
     },
     formatDate(date, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a string date';
