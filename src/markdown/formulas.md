@@ -1,3 +1,7 @@
+### dateISO
+
+Return a date ISO, refreshing every seconds
+
 ### toDateISO
 
 Set a date in ISO format, which is the universal format required for the date functions to work properly `YYYY-MM-DDTHH:mm:ss.sssZ`<br/><br/>
