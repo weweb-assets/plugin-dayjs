@@ -43,11 +43,11 @@ export default {
     /*=============================================m_ÔÔ_m=============================================\
         Dayjs
     \================================================================================================*/
-    toDateISO(date, inputFormat) {
+    toDateISO(date, inputFormat = this.settings.publicData.favoriteFormat) {
         if (!date) throw 'First parameter must be a string date';
         return dayjs(date, inputFormat || 'YYYY-MM-DDTHH:mm:ss.sssZ', false).toISOString();
     },
-    formatDate(date, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    formatDate(date, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a string date';
 
         return dayjs(date)
@@ -96,7 +96,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .to(dayjs(date), withoutSuffix);
     },
-    addSeconds(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    addSeconds(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
@@ -105,7 +105,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    addMinutes(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    addMinutes(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
@@ -114,7 +114,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    addHours(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    addHours(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
@@ -123,7 +123,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    addDays(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    addDays(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
@@ -132,7 +132,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    addMonths(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    addMonths(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
@@ -141,7 +141,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    addYears(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    addYears(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
@@ -150,7 +150,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    setSecond(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    setSecond(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
@@ -159,7 +159,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    setMinute(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    setMinute(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
@@ -168,7 +168,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    setHour(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    setHour(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
@@ -177,7 +177,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    setDay(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    setDay(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         else if (amount === 0)
@@ -190,7 +190,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    setDayOfWeek(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    setDayOfWeek(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         else if (amount === 0)
@@ -203,7 +203,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    setMonth(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    setMonth(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
         if (amount === 0)
@@ -218,7 +218,7 @@ export default {
             .locale(this.locales[locale] || this.backupLang)
             .format(format);
     },
-    setYear(date, amount, format = this.settings.publicData.outputFormat, locale = this.lang) {
+    setYear(date, amount, format = this.settings.publicData.favoriteFormat, locale = this.lang) {
         if (!date) throw 'First parameter must be a date';
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 

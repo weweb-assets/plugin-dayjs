@@ -1,7 +1,7 @@
 <template>
     <div class="dayjs-settings-summary">
         <wwEditorIcon large name="type" class="dayjs-settings-summary__icon" />
-        <span class="body-2">{{ outputFormat || 'Output format not defined' }}</span>
+        <span class="body-2">{{ favoriteFormat || 'Favorite format not defined' }}</span>
     </div>
 </template>
 
@@ -11,8 +11,8 @@ export default {
         settings: { type: Object, required: true },
     },
     computed: {
-        outputFormat() {
-            return this.settings.publicData.outputFormat || '';
+        favoriteFormat() {
+            return this.settings.publicData.favoriteFormat || '';
         },
     },
 };
