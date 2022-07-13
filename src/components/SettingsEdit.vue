@@ -1,21 +1,7 @@
 <template>
     <div class="dayjs-settings-edit">
-        <wwEditorFormRow label="Expected date format input">
-            <template #append-label>
-                <a class="dayjs-settings-edit__link" href="https://day.js.org/docs/en/display/format" target="_blank">
-                    Find example here
-                </a>
-            </template>
+        <wwEditorFormRow label="Default date format output">
             <wwEditorInputText
-                required
-                placeholder="YYYY-MM-DDTHH:mm:ss.sssZ"
-                :model-value="settings.publicData.inputFormat"
-                @update:modelValue="changeInputFormat"
-            />
-        </wwEditorFormRow>
-        <wwEditorFormRow label="Expected date output format">
-            <wwEditorInputText
-                required
                 placeholder="MMMM D, YYYY h:mm A"
                 :model-value="settings.publicData.outputFormat"
                 @update:modelValue="changeOutputFormat"
@@ -31,12 +17,6 @@ export default {
     },
     emits: ['update:settings'],
     methods: {
-        changeInputFormat(inputFormat) {
-            this.$emit('update:settings', {
-                ...this.settings,
-                publicData: { ...this.settings.publicData, inputFormat },
-            });
-        },
         changeOutputFormat(outputFormat) {
             this.$emit('update:settings', {
                 ...this.settings,

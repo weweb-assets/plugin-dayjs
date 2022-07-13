@@ -3,12 +3,16 @@ export default {
         settings: {
             edit: () => import('./src/components/SettingsEdit.vue'),
             summary: () => import('./src/components/SettingsSummary.vue'),
-            getIsValid(settings) {
-                return !!settings.publicData.outputFormat && !!settings.publicData.outputFormat;
+            getIsValid() {
+                return true;
             },
         },
     },
     formulas: [
+        {
+            name: 'toDateISO',
+            arrity: 1,
+        },
         {
             name: 'formatDate',
             arrity: 1,

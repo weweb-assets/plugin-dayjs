@@ -1,11 +1,7 @@
 <template>
     <div class="dayjs-settings-summary">
         <wwEditorIcon large name="type" class="dayjs-settings-summary__icon" />
-        <span class="caption-m">{{ inputFormat }}</span>
-    </div>
-    <div class="dayjs-settings-summary">
-        <wwEditorIcon large name="type" class="dayjs-settings-summary__icon" />
-        <span class="caption-m">{{ outputFormat }}</span>
+        <span class="body-2">{{ outputFormat || 'Output format not defined' }}</span>
     </div>
 </template>
 
@@ -15,9 +11,6 @@ export default {
         settings: { type: Object, required: true },
     },
     computed: {
-        inputFormat() {
-            return this.settings.publicData.inputFormat || '';
-        },
         outputFormat() {
             return this.settings.publicData.outputFormat || '';
         },
