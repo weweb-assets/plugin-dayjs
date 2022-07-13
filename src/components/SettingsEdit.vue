@@ -1,10 +1,10 @@
 <template>
     <div class="dayjs-settings-edit">
-        <wwEditorFormRow label="Default date format output">
+        <wwEditorFormRow label="Favorite date format">
             <wwEditorInputText
                 placeholder="MMMM D, YYYY h:mm A"
-                :model-value="settings.publicData.outputFormat"
-                @update:modelValue="changeOutputFormat"
+                :model-value="settings.publicData.favoriteFormat"
+                @update:modelValue="changeFavoriteFormat"
             />
         </wwEditorFormRow>
     </div>
@@ -17,10 +17,10 @@ export default {
     },
     emits: ['update:settings'],
     methods: {
-        changeOutputFormat(outputFormat) {
+        changeFavoriteFormat(favoriteFormat) {
             this.$emit('update:settings', {
                 ...this.settings,
-                publicData: { ...this.settings.publicData, outputFormat },
+                publicData: { ...this.settings.publicData, favoriteFormat },
             });
         },
     },
