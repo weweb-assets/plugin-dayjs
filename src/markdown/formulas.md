@@ -5,12 +5,41 @@ Return a date ISO, refreshing every seconds
 ### toDateISO
 
 Set a date in ISO format, which is the universal format required for the date functions to work properly `YYYY-MM-DDTHH:mm:ss.sssZ`<br/><br/>
-`toDateISO(date, inputFormat)`
+`toDateISO(date, inputFormat)` <br/><br/>
 
+If no parameter is entered for `inputFormat`, your favorite format will be used. If you have no favorite format defined, the ISO format will be used.
 ### formatDate
 
 Returns a date in the favorite format or requested format. For example, format `DD.MM.YYYY HH:mm`<br/><br/>
-`formatDate(dateISO)` or `formatDate(dateISO, format)`
+`formatDate(dateISO)` or `formatDate(dateISO, format)`<br/><br/>
+or `formatDate(dateISO, format, locale)` If no parameter is entered for `locale`, the language of the page will be selected if it is supported. The backup locale in case of non support is English
+
+### fromTime
+
+Returns the string of relative time from now <br/><br/>
+`fromTime(dateISO)` or `fromTime(dateISO, false)` <br/><br/>
+If you pass true as second parameter, you can get the value without the suffix.<br/><br/>
+
+or `fromTime(dateISO, true, locale)` If no parameter is entered for `locale`, the language of the page will be selected if it is supported. The backup locale in case of non support is English
+
+### toTime
+
+Returns the string of relative time to X <br/><br/>
+`toTime(dateISO)` or `toTime(dateISO, false)` <br/><br/>
+If you pass true as second parameter, you can get the value without the suffix.<br/><br/>
+
+or `toTime(dateISO, true, locale)` If no parameter is entered for `locale`, the language of the page will be selected if it is supported. The backup locale in case of non support is English
+
+### compareDate
+
+Indicates the difference between two date-time in the specified unit (seconds, minutes, etc...). <br/><br/>
+By default, compareDate will truncate the result to zero decimal places, returning an integer. If you want a floating point number, pass true as the fourth argument. <br/><br/>
+
+`compareDate(dateISO1, dateISO2, unit)` or `compareDate(dateISO1, dateISO2, unit, floating)`
+
+Available units:
+
+`day` or `d`, `weed` or `w`, `quarter` or `Q`, `month` or `M`, `year` or `y`, `hour` or `h`, `minute` or `m`, `second` or `s`, `millisecond` or `ms`
 
 ### getSecond
 
@@ -56,18 +85,6 @@ Return the month of the given date, if no date is given, return the current mont
 
 Return the year of the given date, if no date is given, return the current year<br/><br/>
 `getYear(dateISO)`
-
-### fromTime
-
-Returns the string of relative time from now <br/><br/>
-`fromTime(dateISO)` or `fromTime(dateISO, true)` <br/><br/>
-If you pass true as second parameter, you can get the value without the suffix
-
-### toTime
-
-Returns the string of relative time to X <br/><br/>
-`toTime(dateISO)` or `toTime(dateISO, true)` <br/><br/>
-If you pass true as second parameter, you can get the value without the suffix
 
 ### addSeconds
 
@@ -135,13 +152,3 @@ Returns a new date with the month specified in parameters <br/><br/>
 Returns a new date with the year specified in parameters <br/><br/>
 `setYear(dateISO, amount)`
 
-### compareDate
-
-Indicates the difference between two date-time in the specified unit (seconds, minutes, etc...). <br/><br/>
-By default, compareDate will truncate the result to zero decimal places, returning an integer. If you want a floating point number, pass true as the fourth argument. <br/><br/>
-
-`compareDate(dateISO1, dateISO2, unit)` or `compareDate(dateISO1, dateISO2, unit, floating)`
-
-Available units:
-
-`day` or `d`, `weed` or `w`, `quarter` or `Q`, `month` or `M`, `year` or `y`, `hour` or `h`, `minute` or `m`, `second` or `s`, `millisecond` or `ms`

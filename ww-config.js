@@ -23,6 +23,35 @@ export default {
             parameters: [
                 { name: 'Date', type: 'string' },
                 { name: 'Format', type: 'string' },
+                { name: 'Locale', type: 'string' },
+            ],
+        },
+        {
+            name: 'toTime',
+            arrity: 1,
+            parameters: [
+                { name: 'Date', type: 'string' },
+                { name: 'WithoutSuffix', type: 'boolean' },
+                { name: 'Locale', type: 'string' },
+            ],
+        },
+        {
+            name: 'fromTime',
+            arrity: 1,
+            parameters: [
+                { name: 'Date', type: 'string' },
+                { name: 'WithoutSuffix', type: 'boolean' },
+                { name: 'Locale', type: 'string' },
+            ],
+        },
+        {
+            name: 'compareDate',
+            arrity: 3,
+            parameters: [
+                { name: 'Date1', type: 'string' },
+                { name: 'Date1', type: 'string' },
+                { name: 'Precision', type: 'string' },
+                { name: 'Float', type: 'boolean' },
             ],
         },
         {
@@ -62,22 +91,6 @@ export default {
             name: 'getWeekOfYear',
             arrity: 0,
             parameters: [{ name: 'Date', type: 'string' }],
-        },
-        {
-            name: 'fromTime',
-            arrity: 1,
-            parameters: [
-                { name: 'Date', type: 'string' },
-                { name: 'WithoutSuffix', type: 'boolean' },
-            ],
-        },
-        {
-            name: 'toTime',
-            arrity: 1,
-            parameters: [
-                { name: 'Date', type: 'string' },
-                { name: 'WithoutSuffix', type: 'boolean' },
-            ],
         },
         {
             name: 'addSeconds',
@@ -130,16 +143,6 @@ export default {
         {
             name: 'setYear',
             arrity: 2,
-        },
-        {
-            name: 'compareDate',
-            arrity: 3,
-            parameters: [
-                { name: 'Date1', type: 'string' },
-                { name: 'Date1', type: 'string' },
-                { name: 'Precision', type: 'string' },
-                { name: 'Float', type: 'boolean' },
-            ],
         },
     ],
 };
