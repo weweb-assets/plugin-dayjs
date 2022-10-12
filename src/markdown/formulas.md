@@ -39,7 +39,7 @@ By default, compareDate will truncate the result to zero decimal places, returni
 
 Available units:
 
-`day` or `d`, `weed` or `w`, `quarter` or `Q`, `month` or `M`, `year` or `y`, `hour` or `h`, `minute` or `m`, `second` or `s`, `millisecond` or `ms`
+`day` or `d`, `week` or `w`, `quarter` or `Q`, `month` or `M`, `year` or `y`, `hour` or `h`, `minute` or `m`, `second` or `s`, `millisecond` or `ms`
 
 ### getSecond
 
