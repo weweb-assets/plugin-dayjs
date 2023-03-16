@@ -144,5 +144,18 @@ export default {
             name: 'setYear',
             arrity: 2,
         },
+        {
+            name: 'getCurrentTimezone',
+            arrity: 0,
+        },
+        {
+            name: 'convertDateTimezone',
+            arrity: 2,
+            parameters: [
+                { name: 'Date', type: 'string' },
+                { name: 'Timezone', type: 'string' },
+                { name: 'Preserve', type: 'boolean' },
+            ],
+        },
     ],
 };
