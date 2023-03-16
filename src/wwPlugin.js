@@ -22,7 +22,7 @@ const getDateIso = () => {
     const tzoffset = new Date().getTimezoneOffset() * 60000;
     const localISOTime = new Date(Date.now() - tzoffset).toISOString();
     return localISOTime;
-}
+};
 const _dateISO = ref(getDateIso());
 
 setInterval(() => {
@@ -201,5 +201,13 @@ export default {
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
         return dayjs(date).set('year', amount).toISOString();
+    },
+    getCurrentTimezone() {
+        return dayjs.tz.guess();
+    },
+    convertDateTimezone(date, timezone, preserve = false) {
+        if (!date) throw 'First parameter must be a date';
+        if (typeof timezone !== 'string') throw 'Second parameter must be a string';
+        return dayjs(date).tz(timezone, preserve);
     },
 };
