@@ -11,11 +11,15 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
 
 dayjs.extend(relativeTime);
 dayjs.extend(dayOfYear);
 dayjs.extend(weekOfYear);
 dayjs.extend(customParseFormat);
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 // Date ISO
 const getDateIso = () => {

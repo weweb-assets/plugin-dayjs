@@ -150,7 +150,7 @@ export default {
         },
         {
             name: 'convertDateTimezone',
-            arrity: 2,
+            arrity: 3,
             parameters: [
                 { name: 'Date', type: 'string' },
                 { name: 'Timezone', type: 'string' },
