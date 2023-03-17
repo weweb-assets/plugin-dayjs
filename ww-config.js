@@ -145,7 +145,7 @@ export default {
             arrity: 2,
         },
         {
-            name: 'getCurrentTimezone',
+            name: 'getBrowserTimezone',
             arrity: 0,
         },
         {
@@ -155,6 +155,15 @@ export default {
                 { name: 'Date', type: 'string' },
                 { name: 'Timezone', type: 'string' },
                 { name: 'Preserve', type: 'boolean' },
+            ],
+        },
+        {
+            name: 'formatDateTimezone',
+            arrity: 3,
+            parameters: [
+                { name: 'Date', type: 'string' },
+                { name: 'Format', type: 'string' },
+                { name: 'Timezone', type: 'string' },
             ],
         },
     ],
