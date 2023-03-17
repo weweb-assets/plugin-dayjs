@@ -145,12 +145,16 @@ export default {
             arrity: 2,
         },
         {
+            name: 'toTimestamp',
+            arrity: 1,
+        },
+        {
             name: 'getBrowserTimezone',
             arrity: 0,
         },
         {
             name: 'convertDateTimezone',
-            arrity: 3,
+            arrity: 2,
             parameters: [
                 { name: 'Date', type: 'string' },
                 { name: 'Timezone', type: 'string' },
@@ -164,6 +168,7 @@ export default {
                 { name: 'Date', type: 'string' },
                 { name: 'Format', type: 'string' },
                 { name: 'Timezone', type: 'string' },
+                { name: 'Locale', type: 'string' },
             ],
         },
     ],

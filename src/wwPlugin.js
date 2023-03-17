@@ -206,6 +206,10 @@ export default {
 
         return dayjs(date).set('year', amount).toISOString();
     },
+    toTimestamp(date) {
+        if (!date) throw 'First parameter must be a date';
+        return dayjs(date).valueOf();
+    },
     getBrowserTimezone() {
         return dayjs.tz.guess();
     },
