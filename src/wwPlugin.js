@@ -214,10 +214,18 @@ export default {
         if (typeof timezone !== 'string') throw 'Second parameter must be a string';
         return dayjs(date).tz(timezone, preserve).format();
     },
-    formatDateTimezone(date, format = this.settings.publicData.favoriteFormat, timezone = dayjs.tz.guess()) {
+    formatDateTimezone(
+        date,
+        format = this.settings.publicData.favoriteFormat,
+        timezone = dayjs.tz.guess(),
+        locale = this.lang
+    ) {
         if (!date) throw 'First parameter must be a date';
         if (typeof format !== 'string') throw 'Second parameter must be a string';
         if (typeof timezone !== 'string') throw 'Third parameter must be a string';
-        return dayjs(date).tz(timezone, preserve).format(format);
+        return dayjs(date)
+            .tz(timezone)
+            .locale(this.locales[locale] || this.backupLang)
+            .format(format);
     },
 };
