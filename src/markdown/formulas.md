@@ -8,6 +8,7 @@ Set a date in ISO format, which is the universal format required for the date fu
 `toDateISO(date, inputFormat)` <br/><br/>
 
 If no parameter is entered for `inputFormat`, your favorite format will be used. If you have no favorite format defined, the ISO format will be used.
+
 ### formatDate
 
 Returns a date in the favorite format or requested format. For example, format `DD.MM.YYYY HH:mm`<br/><br/>
@@ -141,7 +142,6 @@ Returns a new date for the current month with the day specified in parameters <b
 Returns a new date for the current week with the day specified in parameters <br/><br/>
 `setDayOfWeek(dateISO, amount)`
 
-
 ### setMonth
 
 Returns a new date with the month specified in parameters <br/><br/>
@@ -152,3 +152,30 @@ Returns a new date with the month specified in parameters <br/><br/>
 Returns a new date with the year specified in parameters <br/><br/>
 `setYear(dateISO, amount)`
 
+### toTimestamp
+
+Returns the timestamp value for a given date as a number `1548381600000`<br/><br/>
+`toTimestamp(dateISO)`<br/><br/>
+
+A timestamp is the number of milliseconds since the Unix Epoch (01/01/1970)
+
+### getBrowserTimezone
+
+Returns the current browser timezone as a string `"America/Toronto"`<br/><br/>
+`getBrowserTimezone()`
+
+### convertDateTimezone
+
+Returns the given date with the specified timezone as a string `"2013-11-18T11:55:20-05:00"`<br/><br/>
+`convertDateTimezone(dateISO, timezone)` <br/><br/>
+
+If no parameter is entered for `timezone`, the current browser timezone will be used.<br/><br/>
+
+You can use a third parameter to preserve the time during the conversion, it will keep the time and apply the timezone on top.<br/><br/>
+`convertDateTimezone(dateISO, timezone, true)`
+
+### formatDateTimezone
+
+Returns a date in given format `DD.MM.YYYY HH:mm` for a specified timezone `America/Toronto`<br/><br/>
+`formatDateTimezone(dateISO, format, timezone)`<br/><br/>
+or `formatDateTimezone(dateISO, format, timezone, locale)` If no parameter is entered for `locale`, the language of the page will be selected if it is supported. The backup locale in case of non support is English

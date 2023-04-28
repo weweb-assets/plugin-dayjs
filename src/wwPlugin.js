@@ -11,18 +11,22 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
 
 dayjs.extend(relativeTime);
 dayjs.extend(dayOfYear);
 dayjs.extend(weekOfYear);
 dayjs.extend(customParseFormat);
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 // Date ISO
 const getDateIso = () => {
     const tzoffset = new Date().getTimezoneOffset() * 60000;
     const localISOTime = new Date(Date.now() - tzoffset).toISOString();
     return localISOTime;
-}
+};
 const _dateISO = ref(getDateIso());
 
 setInterval(() => {
@@ -201,5 +205,31 @@ export default {
         if (!amount && amount !== 0) throw 'Second parameter must be a number';
 
         return dayjs(date).set('year', amount).toISOString();
+    },
+    toTimestamp(date) {
+        if (!date) throw 'First parameter must be a date';
+        return dayjs(date).valueOf();
+    },
+    getBrowserTimezone() {
+        return dayjs.tz.guess();
+    },
+    convertDateTimezone(date, timezone, preserve = false) {
+        if (!date) throw 'First parameter must be a date';
+        if (typeof timezone !== 'string') throw 'Second parameter must be a string';
+        return dayjs(date).tz(timezone, preserve).format();
+    },
+    formatDateTimezone(
+        date,
+        format = this.settings.publicData.favoriteFormat,
+        timezone = dayjs.tz.guess(),
+        locale = this.lang
+    ) {
+        if (!date) throw 'First parameter must be a date';
+        if (typeof format !== 'string') throw 'Second parameter must be a string';
+        if (typeof timezone !== 'string') throw 'Third parameter must be a string';
+        return dayjs(date)
+            .tz(timezone)
+            .locale(this.locales[locale] || this.backupLang)
+            .format(format);
     },
 };
