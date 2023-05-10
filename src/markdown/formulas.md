@@ -1,6 +1,14 @@
 ### dateISO
 
-Return a date ISO, refreshing every seconds
+Is deprecated, please use date or dateRealtime instead.
+
+### date
+
+Return a date as ISO string `YYYY-MM-DDTHH:mm:ss.sssZ`, can take the same parameter as `new Date()` in javascript.
+
+### dateRealtime
+
+Return the current date as ISO string `YYYY-MM-DDTHH:mm:ss.sssZ`, refreshing every seconds
 
 ### toDateISO
 

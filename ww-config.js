@@ -10,7 +10,11 @@ export default {
     },
     formulas: [
         {
-            name: 'dateISO',
+            name: 'date',
+            arrity: 0,
+        },
+        {
+            name: 'dateRealtime',
             arrity: 0,
         },
         {
