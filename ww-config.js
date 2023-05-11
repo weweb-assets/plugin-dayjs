@@ -10,6 +10,11 @@ export default {
     },
     formulas: [
         {
+            name: 'dateISO',
+            arrity: 0,
+            deprecated: true,
+        },
+        {
             name: 'date',
             arrity: 0,
         },
