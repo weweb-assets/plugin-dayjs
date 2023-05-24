@@ -21,15 +21,21 @@ dayjs.extend(customParseFormat);
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-// Date ISO
-const getDateIso = () => {
+const oldGetDateIso = () => {
     const tzoffset = new Date().getTimezoneOffset() * 60000;
     const localISOTime = new Date(Date.now() - tzoffset).toISOString();
     return localISOTime;
 };
+
+const getDateIso = () => {
+    return new Date().toISOString();
+};
+
+const _oldDateISO = ref(oldGetDateIso());
 const _dateISO = ref(getDateIso());
 
 setInterval(() => {
+    _oldDateISO.value = oldGetDateIso();
     _dateISO.value = getDateIso();
 }, 1000);
 
@@ -59,7 +65,14 @@ export default {
     /*=============================================m_ÔÔ_m=============================================\
         Dayjs
     \================================================================================================*/
+    // deprecated
     dateISO() {
+        return _oldDateISO.value;
+    },
+    date(...args) {
+        return new Date(...args).toISOString();
+    },
+    dateRealtime() {
         return _dateISO.value;
     },
     toDateISO(date, inputFormat = this.settings.publicData.favoriteFormat) {

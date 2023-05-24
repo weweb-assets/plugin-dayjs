@@ -12,6 +12,15 @@ export default {
         {
             name: 'dateISO',
             arrity: 0,
+            deprecated: true,
+        },
+        {
+            name: 'date',
+            arrity: 0,
+        },
+        {
+            name: 'dateRealtime',
+            arrity: 0,
         },
         {
             name: 'toDateISO',
