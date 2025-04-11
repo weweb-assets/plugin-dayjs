@@ -7,6 +7,7 @@ import './components/SettingsSummary.vue';
 
 import dayjs from 'dayjs';
 import * as localesList from 'dayjs/locale';
+import locales from 'dayjs/locale';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
@@ -50,10 +51,11 @@ export default {
     async onLoad() {
         const lang = computed(() => wwLib.$store.getters['front/getLang']);
 
-        console.log(localesList);
-        // for (let locale of localesList.default) {
-        //     this.locales[locale.key] = import(`dayjs/locale/${locale.key}.js`);
-        // }
+        console.log('localesList', localesList);
+        console.log('locales', locales);
+        for (let locale of localesList.default) {
+            this.locales[locale.key] = await import(`dayjs/locale/${locale.key}.js`);
+        }
 
         watch(
             lang,
