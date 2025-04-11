@@ -50,9 +50,10 @@ export default {
     async onLoad() {
         const lang = computed(() => wwLib.$store.getters['front/getLang']);
 
-        for (let locale of localesList.default) {
-            this.locales[locale.key] = import(`dayjs/locale/${locale.key}.js`);
-        }
+        console.log(localesList);
+        // for (let locale of localesList.default) {
+        //     this.locales[locale.key] = import(`dayjs/locale/${locale.key}.js`);
+        // }
 
         watch(
             lang,
