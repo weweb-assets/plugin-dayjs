@@ -51,7 +51,7 @@ export default {
         const lang = computed(() => wwLib.$store.getters['front/getLang']);
 
         for (let locale of localesList.default) {
-            this.locales[locale.key] = require(`dayjs/locale/${locale.key}.js`);
+            this.locales[locale.key] = import(`dayjs/locale/${locale.key}.js`);
         }
 
         watch(
