@@ -1,4 +1,5 @@
 export default {
+    /* wwEditor:start */
     editor: {
         settings: {
             edit: () => import('./src/components/SettingsEdit.vue'),
@@ -8,6 +9,7 @@ export default {
             },
         },
     },
+    /* wwEditor:end */
     formulas: [
         {
             name: 'dateISO',
