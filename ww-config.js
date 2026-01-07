@@ -19,14 +19,17 @@ export default {
         {
             name: 'date',
             arrity: 0,
+            deprecated: true,
         },
         {
             name: 'dateRealtime',
             arrity: 0,
+            deprecated: true,
         },
         {
             name: 'toDateISO',
             arrity: 1,
+            deprecated: true,
         },
         {
             name: 'formatDate',
@@ -36,6 +39,7 @@ export default {
                 { name: 'Format', type: 'string' },
                 { name: 'Locale', type: 'string' },
             ],
+            deprecated: true,
         },
         {
             name: 'toTime',
@@ -45,6 +49,7 @@ export default {
                 { name: 'WithoutSuffix', type: 'boolean' },
                 { name: 'Locale', type: 'string' },
             ],
+            deprecated: true,
         },
         {
             name: 'fromTime',
@@ -54,6 +59,7 @@ export default {
                 { name: 'WithoutSuffix', type: 'boolean' },
                 { name: 'Locale', type: 'string' },
             ],
+            deprecated: true,
         },
         {
             name: 'compareDate',
@@ -64,104 +70,129 @@ export default {
                 { name: 'Precision', type: 'string' },
                 { name: 'Float', type: 'boolean' },
             ],
+            deprecated: true,
         },
         {
             name: 'getSecond',
             arrity: 0,
+            deprecated: true,
         },
         {
             name: 'getMinute',
             arrity: 0,
+            deprecated: true,
         },
         {
             name: 'getHour',
             arrity: 0,
+            deprecated: true,
         },
         {
             name: 'getDay',
             arrity: 0,
+            deprecated: true,
         },
         {
             name: 'getDayOfWeek',
             arrity: 0,
+            deprecated: true,
         },
         {
             name: 'getMonth',
             arrity: 0,
+            deprecated: true,
         },
         {
             name: 'getYear',
             arrity: 0,
+            deprecated: true,
         },
         {
             name: 'getDayOfYear',
             arrity: 0,
             parameters: [{ name: 'Date', type: 'string' }],
+            deprecated: true,
         },
         {
             name: 'getWeekOfYear',
             arrity: 0,
             parameters: [{ name: 'Date', type: 'string' }],
+            deprecated: true,
         },
         {
             name: 'addSeconds',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'addMinutes',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'addHours',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'addDays',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'addMonths',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'addYears',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'setSecond',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'setMinute',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'setHour',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'setDay',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'setDayOfWeek',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'setMonth',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'setYear',
             arrity: 2,
+            deprecated: true,
         },
         {
             name: 'toTimestamp',
             arrity: 1,
+            deprecated: true,
         },
         {
             name: 'getBrowserTimezone',
             arrity: 0,
+            deprecated: true,
         },
         {
             name: 'convertDateTimezone',
@@ -171,6 +202,7 @@ export default {
                 { name: 'Timezone', type: 'string' },
                 { name: 'Preserve', type: 'boolean' },
             ],
+            deprecated: true,
         },
         {
             name: 'formatDateTimezone',
@@ -181,6 +213,7 @@ export default {
                 { name: 'Timezone', type: 'string' },
                 { name: 'Locale', type: 'string' },
             ],
+            deprecated: true,
         },
     ],
 };
