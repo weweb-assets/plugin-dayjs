@@ -334,7 +334,7 @@ export default {
     backupLang: 'en',
 
     async onLoad() {
-        const lang = computed(() => wwLib.$store.getters['front/getLang']);
+        const lang = computed(() => wwLib.wwLang.lang);
 
         watch(
             lang,
