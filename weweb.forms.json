@@ -9,6 +9,12 @@
                 "storage": "publicData",
                 "placeholder": "MMMM D, YYYY h:mm A"
             }
+        ],
+        "summary": [
+            {
+                "field": "favoriteFormat",
+                "empty": "Favorite format not defined"
+            }
         ]
     },
     "formulas": [
